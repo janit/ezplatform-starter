@@ -1,0 +1,28 @@
+ezpublish:
+    system:
+        blog:
+            pagelayout: blog_pagelayout.html.twig
+        site:
+            pagelayout: pagelayout.html.twig
+        default:
+            content_view:
+                full:
+                    main_landing_page:
+                        template: "full/main_landing_page.html.twig"
+                        match:
+                            Id\Location: [2]
+                    blog:
+                        template: "full/blog.html.twig"
+                        controller: 'ez_query:ContentQueryAction'
+                        params:
+                            query:
+                                query_type: 'BlogPosts'
+                                parameters:
+                                    parentLocationId: "@=location.id"
+                                assign_results_to: 'blog_posts'
+                        match:
+                            Identifier\ContentType: [blog]
+                    blog_post:
+                        template: "full/blog_post.html.twig"
+                        match:
+                            Identifier\ContentType: [blog_post]
