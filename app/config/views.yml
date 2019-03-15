@@ -4,7 +4,7 @@ ezpublish:
             pagelayout: blog_pagelayout.html.twig
         site:
             pagelayout: pagelayout.html.twig
-        default:
+        site_group:
             content_view:
                 full:
                     main_landing_page:
